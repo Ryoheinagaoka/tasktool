@@ -1,17 +1,20 @@
-module Types
-  class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+class Types::QueryType < Types::BaseObject
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generatorXYZ" do
-      argument :name,String,required: true
-
-      end
-    def test_field(name:)
-     Rails.logger.info context[:time]
-      "Hello #{name}"
-    end
+  field :task, Types::TaskType, null: true do
+    argument :id, ID, required: true
   end
+
+  def task(id:)
+    Task.find(id)
+  end
+
+# -------------
+
+  field :tasks, [Types::TaskType], null: true do
+  end
+
+  def tasks
+    Task.all
+  end
+
 end
