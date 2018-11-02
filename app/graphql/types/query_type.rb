@@ -17,4 +17,13 @@ class Types::QueryType < Types::BaseObject
     Task.all
   end
 
+# あとで消す。
+  field :test_hello, String, null: false,
+    description: "これはテスト" do
+    end
+
+  def test_hello
+    "Hello World！？"
+  end
+
 end
