@@ -1,5 +1,6 @@
-class Types::QueryType < Types::BaseObject
+# frozen_string_literal: true
 
+class Types::QueryType < Types::BaseObject
   field :task, Types::TaskType, null: true do
     argument :id, ID, required: true
   end
@@ -8,7 +9,7 @@ class Types::QueryType < Types::BaseObject
     Task.find(id)
   end
 
-# -------------
+  # -------------
 
   field :tasks, [Types::TaskType], null: true do
   end
@@ -17,13 +18,12 @@ class Types::QueryType < Types::BaseObject
     Task.all
   end
 
-# あとで消す。
+  # あとで消す。
   field :test_hello, String, null: false,
-    description: "これはテスト" do
-    end
-
-  def test_hello
-    "Hello World！？"
+                             description: 'これはテスト' do
   end
 
+  def test_hello
+    'Hello World！？'
+  end
 end

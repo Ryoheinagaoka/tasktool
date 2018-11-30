@@ -1,6 +1,8 @@
-class Types::TaskInputType < GraphQL::Schema::InputObject
-    graphql_name "TaskInputType"
+# frozen_string_literal: true
 
-    argument :id, ID, required: false
-    argument :name, String, required: true
+class Types::TaskInputType < GraphQL::Schema::InputObject
+  graphql_name 'TaskInputType'
+
+  argument :id, ID, required: false
+  argument :name, String, required: true
 end
